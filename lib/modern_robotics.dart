@@ -3,4 +3,4 @@
 /// More dartdocs go here.
 library;
 
-export 'src/modern_robotics.dart';
+export 'src/helper_functions.dart';
