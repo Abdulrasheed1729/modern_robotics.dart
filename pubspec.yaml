@@ -1,5 +1,6 @@
 name: modern_robotics
-description: Dart implementation of [Modern Robotics book code](https://github.com/NxRLab/ModernRobotics)
+description: Dart implementation of [Modern Robotics book
+  code](https://github.com/NxRLab/ModernRobotics)
 version: 0.1.0+dev
 repository: https://github.com/Abdulrasheed1729/modern_robotics.dart
 environment:
@@ -10,5 +11,6 @@ dependencies:
   scidart: ^0.0.2-dev.12
 # path: ^1.8.0
 dev_dependencies:
+  coverage: ^1.6.3
   test: ^1.21.0
   very_good_analysis: ^5.1.0
