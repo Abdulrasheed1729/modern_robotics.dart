@@ -1,8 +1,6 @@
-/// Support for doing something awesome.
+/// Dart implementation of [Modern Robotics book code](https://github.com/NxRLab/ModernRobotics)
 ///
 /// More dartdocs go here.
 library;
 
-export 'src/modern_robotics_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/modern_robotics.dart';
