@@ -13,7 +13,7 @@ and the Flutter guide for
 
 # 🤖 ModernRobotics.dart
 
-[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis) [![Build](https://github.com/Abdulrasheed1729/modern_robotics.dart/actions/workflows/build.yml/badge.svg)](https://github.com/Abdulrasheed1729/modern_robotics.dart/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/Abdulrasheed1729/modern_robotics.dart/branch/main/graph/badge.svg)](https://codecov.io/gh/Abdulrasheed1729/modern_robotics.dart)
 
 Dart implementation of [Modern Robotics book code](https://github.com/NxRLab/ModernRobotics)
 

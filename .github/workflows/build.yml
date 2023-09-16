@@ -2,40 +2,39 @@ name: Build
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [main]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
-  cancel-in-progress: true
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: dev
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: dart pub get
 
-      - name: Check format
-        run: dart format --output=none --set-exit-if-changed -l 120 lib
+      - name: Format
+        run: dart format --set-exit-if-changed .
 
       - name: Analyze
-        run: dart analyze lib
+        run: dart analyze --fatal-infos --fatal-warnings .
 
-      - name: Run tests
-        run: dart test --coverage coverage
+      - name: Run Tests
+        run: |
+          dart pub global activate coverage 1.2.0
+          dart test --coverage=coverage && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on=lib
 
-      - name: Coverage
-        run: dart run coverage:format_coverage -l -i ./coverage/test/registry_test.dart.vm.json -o ./coverage/lcov.info
-
-      - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v1
+      - name: Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
-          fail_ci_if_error: true
+          path: ./coverage/lcov.info
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
